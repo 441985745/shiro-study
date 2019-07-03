@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.shiro.study.mapper.SysUserRoleMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.example.shiro.study.domain.SysUserRole">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="sys_user_id" property="sysUserId" jdbcType="VARCHAR"/>
+        <result column="sys_role_id" property="sysRoleId" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        sys_user_id,
+        sys_role_id
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" >
+        INSERT INTO sys_user_role (
+            id,
+            sys_user_id,
+            sys_role_id
+        ) VALUES (
+            #{sysUserRole.id,jdbcType=VARCHAR},
+            #{sysUserRole.sysUserId,jdbcType=VARCHAR},
+            #{sysUserRole.sysRoleId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" >
+        INSERT INTO sys_user_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysUserRole.id!=null"> id,</if>
+            <if test="sysUserRole.sysUserId!=null"> sys_user_id,</if>
+            <if test="sysUserRole.sysRoleId!=null"> sys_role_id,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysUserRole.id!=null">#{sysUserRole.id,jdbcType=VARCHAR},
+            </if>
+            <if test="sysUserRole.sysUserId!=null">#{sysUserRole.sysUserId,jdbcType=VARCHAR},
+            </if>
+            <if test="sysUserRole.sysRoleId!=null">#{sysUserRole.sysRoleId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_user_role (
+            id,
+            sys_user_id,
+            sys_role_id
+        )VALUES
+        <foreach collection="sysUserRoles" item="sysUserRole" index="index" separator=",">
+            (
+            #{sysUserRole.id,jdbcType=VARCHAR},
+            #{sysUserRole.sysUserId,jdbcType=VARCHAR},
+            #{sysUserRole.sysRoleId,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE sys_user_role
+        <set>
+            <if test="sysUserRole.sysUserId != null"> sys_user_id= #{sysUserRole.sysUserId,jdbcType=VARCHAR},</if>
+            <if test="sysUserRole.sysRoleId != null"> sys_role_id= #{sysUserRole.sysRoleId,jdbcType=VARCHAR}</if>
+        </set>
+        WHERE id = #{sysUserRole.id,jdbcType=VARCHAR}
+    </update>
+</mapper>
+

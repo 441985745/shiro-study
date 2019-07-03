@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.shiro.study.mapper.SysRolePermissionMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.example.shiro.study.domain.SysRolePermission">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="sys_role_id" property="sysRoleId" jdbcType="VARCHAR"/>
+        <result column="sys_permission_id" property="sysPermissionId" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        sys_role_id,
+        sys_permission_id
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO sys_role_permission (
+            id,
+            sys_role_id,
+            sys_permission_id
+        ) VALUES (
+            #{sysRolePermission.id,jdbcType=VARCHAR},
+            #{sysRolePermission.sysRoleId,jdbcType=VARCHAR},
+            #{sysRolePermission.sysPermissionId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" >
+        INSERT INTO sys_role_permission
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysRolePermission.id!=null"> id,</if>
+            <if test="sysRolePermission.sysRoleId!=null"> sys_role_id,</if>
+            <if test="sysRolePermission.sysPermissionId!=null"> sys_permission_id,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysRolePermission.id!=null">#{sysRolePermission.id,jdbcType=VARCHAR},
+            </if>
+            <if test="sysRolePermission.sysRoleId!=null">#{sysRolePermission.sysRoleId,jdbcType=VARCHAR},
+            </if>
+            <if test="sysRolePermission.sysPermissionId!=null">#{sysRolePermission.sysPermissionId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_role_permission (
+            id,
+            sys_role_id,
+            sys_permission_id
+        )VALUES
+        <foreach collection="sysRolePermissions" item="sysRolePermission" index="index" separator=",">
+            (
+            #{sysRolePermission.id,jdbcType=VARCHAR},
+            #{sysRolePermission.sysRoleId,jdbcType=VARCHAR},
+            #{sysRolePermission.sysPermissionId,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE sys_role_permission
+        <set>
+            <if test="sysRolePermission.sysRoleId != null"> sys_role_id= #{sysRolePermission.sysRoleId,jdbcType=VARCHAR},</if>
+            <if test="sysRolePermission.sysPermissionId != null"> sys_permission_id= #{sysRolePermission.sysPermissionId,jdbcType=VARCHAR}</if>
+        </set>
+        WHERE id = #{sysRolePermission.id,jdbcType=VARCHAR}
+    </update>
+</mapper>
+

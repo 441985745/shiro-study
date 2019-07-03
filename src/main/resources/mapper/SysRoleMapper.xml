@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.shiro.study.mapper.SysRoleMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.example.shiro.study.domain.SysRole">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="available" property="available" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        `name`,
+        available
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" >
+        INSERT INTO sys_role (
+            id,
+            `name`,
+            available
+        ) VALUES (
+            #{sysRole.id,jdbcType=VARCHAR},
+            #{sysRole.name,jdbcType=VARCHAR},
+            #{sysRole.available,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective">
+        INSERT INTO sys_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysRole.id!=null"> id,</if>
+            <if test="sysRole.name!=null"> `name`,</if>
+            <if test="sysRole.available!=null"> available,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysRole.id!=null">#{sysRole.id,jdbcType=VARCHAR},
+            </if>
+            <if test="sysRole.name!=null">#{sysRole.name,jdbcType=VARCHAR},
+            </if>
+            <if test="sysRole.available!=null">#{sysRole.available,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_role (
+            id,
+            `name`,
+            available
+        )VALUES
+        <foreach collection="sysRoles" item="sysRole" index="index" separator=",">
+            (
+            #{sysRole.id,jdbcType=VARCHAR},
+            #{sysRole.name,jdbcType=VARCHAR},
+            #{sysRole.available,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE sys_role
+        <set>
+            <if test="sysRole.name != null"> `name`= #{sysRole.name,jdbcType=VARCHAR},</if>
+            <if test="sysRole.available != null"> available= #{sysRole.available,jdbcType=VARCHAR}</if>
+        </set>
+        WHERE id = #{sysRole.id,jdbcType=VARCHAR}
+    </update>
+</mapper>
+

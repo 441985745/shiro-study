@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.shiro.study.mapper.SysPermissionMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.example.shiro.study.domain.SysPermission">
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="percode" property="percode" jdbcType="VARCHAR"/>
+        <result column="parentid" property="parentid" jdbcType="BIGINT"/>
+        <result column="parentids" property="parentids" jdbcType="VARCHAR"/>
+        <result column="sortstring" property="sortstring" jdbcType="VARCHAR"/>
+        <result column="available" property="available" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        `name`,
+        `type`,
+        url,
+        percode,
+        parentid,
+        parentids,
+        sortstring,
+        available
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" >
+        INSERT INTO sys_permission (
+            id,
+            `name`,
+            `type`,
+            url,
+            percode,
+            parentid,
+            parentids,
+            sortstring,
+            available
+        ) VALUES (
+            #{sysPermission.id,jdbcType=BIGINT},
+            #{sysPermission.name,jdbcType=VARCHAR},
+            #{sysPermission.type,jdbcType=VARCHAR},
+            #{sysPermission.url,jdbcType=VARCHAR},
+            #{sysPermission.percode,jdbcType=VARCHAR},
+            #{sysPermission.parentid,jdbcType=BIGINT},
+            #{sysPermission.parentids,jdbcType=VARCHAR},
+            #{sysPermission.sortstring,jdbcType=VARCHAR},
+            #{sysPermission.available,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" >
+        INSERT INTO sys_permission
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysPermission.id!=null"> id,</if>
+            <if test="sysPermission.name!=null"> `name`,</if>
+            <if test="sysPermission.type!=null"> `type`,</if>
+            <if test="sysPermission.url!=null"> url,</if>
+            <if test="sysPermission.percode!=null"> percode,</if>
+            <if test="sysPermission.parentid!=null"> parentid,</if>
+            <if test="sysPermission.parentids!=null"> parentids,</if>
+            <if test="sysPermission.sortstring!=null"> sortstring,</if>
+            <if test="sysPermission.available!=null"> available,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysPermission.id!=null">#{sysPermission.id,jdbcType=BIGINT},
+            </if>
+            <if test="sysPermission.name!=null">#{sysPermission.name,jdbcType=VARCHAR},
+            </if>
+            <if test="sysPermission.type!=null">#{sysPermission.type,jdbcType=VARCHAR},
+            </if>
+            <if test="sysPermission.url!=null">#{sysPermission.url,jdbcType=VARCHAR},
+            </if>
+            <if test="sysPermission.percode!=null">#{sysPermission.percode,jdbcType=VARCHAR},
+            </if>
+            <if test="sysPermission.parentid!=null">#{sysPermission.parentid,jdbcType=BIGINT},
+            </if>
+            <if test="sysPermission.parentids!=null">#{sysPermission.parentids,jdbcType=VARCHAR},
+            </if>
+            <if test="sysPermission.sortstring!=null">#{sysPermission.sortstring,jdbcType=VARCHAR},
+            </if>
+            <if test="sysPermission.available!=null">#{sysPermission.available,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO sys_permission (
+            id,
+            `name`,
+            `type`,
+            url,
+            percode,
+            parentid,
+            parentids,
+            sortstring,
+            available
+        )VALUES
+        <foreach collection="sysPermissions" item="sysPermission" index="index" separator=",">
+            (
+            #{sysPermission.id,jdbcType=BIGINT},
+            #{sysPermission.name,jdbcType=VARCHAR},
+            #{sysPermission.type,jdbcType=VARCHAR},
+            #{sysPermission.url,jdbcType=VARCHAR},
+            #{sysPermission.percode,jdbcType=VARCHAR},
+            #{sysPermission.parentid,jdbcType=BIGINT},
+            #{sysPermission.parentids,jdbcType=VARCHAR},
+            #{sysPermission.sortstring,jdbcType=VARCHAR},
+            #{sysPermission.available,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE sys_permission
+        <set>
+            <if test="sysPermission.name != null"> `name`= #{sysPermission.name,jdbcType=VARCHAR},</if>
+            <if test="sysPermission.type != null"> `type`= #{sysPermission.type,jdbcType=VARCHAR},</if>
+            <if test="sysPermission.url != null"> url= #{sysPermission.url,jdbcType=VARCHAR},</if>
+            <if test="sysPermission.percode != null"> percode= #{sysPermission.percode,jdbcType=VARCHAR},</if>
+            <if test="sysPermission.parentid != null"> parentid= #{sysPermission.parentid,jdbcType=BIGINT},</if>
+            <if test="sysPermission.parentids != null"> parentids= #{sysPermission.parentids,jdbcType=VARCHAR},</if>
+            <if test="sysPermission.sortstring != null"> sortstring= #{sysPermission.sortstring,jdbcType=VARCHAR},</if>
+            <if test="sysPermission.available != null"> available= #{sysPermission.available,jdbcType=VARCHAR}</if>
+        </set>
+        WHERE id = #{sysPermission.id,jdbcType=BIGINT}
+    </update>
+</mapper>
+
